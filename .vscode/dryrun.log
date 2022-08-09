@@ -1,0 +1,6 @@
+make.exe --dry-run --always-make --keep-going --print-directory
+make.exe: Entering directory `/c/Users/kienv/Desktop/cs179e/cs179_phase3'
+javac -cp "vapor-parser.jar" V2VM.java
+java -cp "vapor-parser.jar" V2VM < P.vapor > P.vaporm
+make.exe: Leaving directory `/c/Users/kienv/Desktop/cs179e/cs179_phase3'
+ 
