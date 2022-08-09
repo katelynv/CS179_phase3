@@ -4,13 +4,13 @@ public class Interval {
 	public String variable;
 	private int start;
 	private int stop;
-	private List<Integer> useLocations;
+	private List<Integer> location;
 
-	public Interval(String v, int b, int e) {
-		this.variable = v;
-		this.start = b;
-		this.stop = e;
-		this.useLocations = new ArrayList<>();
+	public Interval(String s, int i, int x) {
+		this.variable = s;
+		this.start = i;
+		this.stop = x;
+		this.location = new ArrayList<>();
 	}
 
 	public String getName() {
@@ -18,11 +18,11 @@ public class Interval {
 	}
 
 	public void addUse(int x) {
-		useLocations.add(x);
+		location.add(x);
 	}
 
 	public int useSize() {
-		return useLocations.size();
+		return location.size();
 	}
 
 	public void setStart(int x) {

@@ -16,7 +16,7 @@ public class Find {
 		outVariables = 0;
 	}
 
-	public Map<String, Interval> LivenessAnalysis() {
+	public Map<String, Interval> analysis() {
 		Graph g = createCFG(func); 
 		this.g = g;
 		Map<String, Interval> li = findLiveTime(g);
@@ -43,7 +43,7 @@ public class Find {
 	}
 
 	private List<Interval> getLive(Graph g) {
-		List<Integer> key = g.getAllKey();
+		List<Integer> key = g.getKey();
 		for (Integer i : key) {
 			Node n = g.getNode(i);
 			n.actives.addAll(n.in);
@@ -85,7 +85,7 @@ public class Find {
 
 	private static Map<String, Interval> findLiveTime(Graph g) {
 		Map<String, Interval> li = new HashMap<String, Interval>();
-		List<Integer> key = g.getAllKey();
+		List<Integer> key = g.getKey();
 		for (Integer i : key) {
 			Node n = g.getNode(i);
 			n.actives.addAll(n.in);

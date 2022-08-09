@@ -25,7 +25,7 @@ public class Graph {
 		to.pred().addNode(from);
 	}
 
-	public void show(){
+	public void output(){
 		cfg.print();
 	}
 
@@ -33,7 +33,7 @@ public class Graph {
 		return cfg.size();
 	}
 
-	public List<Integer> getAllKey(){
+	public List<Integer> getKey(){
 		List<Integer> key
             = new ArrayList<Integer>(); 
 		Object[] c = cfg.toArray();

@@ -52,7 +52,7 @@ public class V2VM {
 	public static void convertFunctions(VFunction[] vf) throws IOException {
 		for (VFunction x : vf) {
 			Find fl = new Find(x); 
-			Map<String, Interval> li = fl.LivenessAnalysis();
+			Map<String, Interval> li = fl.analysis();
 
 			List<String> args = fl.getSavedRegs();
 			Scan ls = new Scan();
@@ -60,7 +60,7 @@ public class V2VM {
 			for (String vari : x.vars) {
 				variables.add(vari.toString());
 			}
-			ls.performLinearScan(li, args, variables); 
+			ls.performScan(li, args, variables); 
 
 			int local = args.size();
 			int in = 0;

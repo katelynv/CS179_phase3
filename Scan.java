@@ -22,7 +22,7 @@ public class Scan {
 		return this.registers;
 	}
 
-	public void performLinearScan(Map<String, Interval> li, List<String> args, List<String> vars) {
+	public void performScan(Map<String, Interval> li, List<String> args, List<String> vars) {
 		Map<String, Interval> variables = new HashMap<>();
 		Map<String, Interval> parameters = new HashMap<>();
 		Register r = new Register();
@@ -37,16 +37,16 @@ public class Scan {
 			}
 		}
 
-		LinearScanRegisterAllocation(variables);
+		scanRegAlloc(variables);
 		r.setCallerSaved(freeRegisters);
 		freeRegisters.clear();
 		freeRegisters.addAll(r.getCalleeSaved());
 		active.clear();
-		LinearScanRegisterAllocation(parameters);
+		scanRegAlloc(parameters);
 		r.setCalleeSaved(freeRegisters);
 	}
 
-	public void LinearScanRegisterAllocation(Map<String, Interval> li) {
+	public void scanRegAlloc(Map<String, Interval> li) {
 		Map<String, Interval> l = sortbyStart(li);
 		for (Map.Entry<String, Interval> i : l.entrySet()) {
 			ExpireOldIntervals(i);
